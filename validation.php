@@ -13,15 +13,17 @@
 
     <?php
     $variable_validate="Shit";
-
+    $error_message ="";
 
     //Presence
     if (!isset($variable_validate)){
-      echo "presence validation failed<br>";
+      //echo "presence validation failed<br>";
+      $error_message .= "presence validation failed<br>";
     }
     else
     {
-      echo "presence validated<br>";
+      //echo "presence validated<br>";
+      $error_message .= "presence validated<br>";
     }
 
     //String length
@@ -30,30 +32,42 @@
 
     if (strlen($variable_validate)<$min_length || strlen($variable_validate)>$max_length )
     {
-      echo "string length validation failed<br>";
+      $error_message .= "string length validation failed<br>";
+      //echo "string length validation failed<br>";
+
     }
     else
     {
-      echo "string length validated<br>";
+      $error_message .= "string length validated<br>";
+      //echo "string length validated<br>";
+
     }
     //Type
     //if string =yes
     if (!is_string($variable_validate))
     {
-      echo "Type validation failed<br>";
+      $error_message .= "Type validation failed<br>";
+      //echo "Type validation failed<br>";
+
     }
     else {
-      echo "Type validated<br>";
+      $error_message .= "Type validated<br>";
+      //echo "Type validated<br>";
+
     }
 
     //Inclusion in a set
     // if not a bad word
     $set_bad_words = array("Shit", "Piss", "Fuck", "Cunt", "Cocksucker", "Motherfucker", "Tits");
     if (!in_array($variable_validate , $set_bad_words)){
-      echo "Set validation failed<br>";
+      $error_message .= "Set validation failed<br>";
+      //echo "Set validation failed<br>";
+
     }
     else {
-      echo "Set validated<br>";
+      $error_message .= "Set validated<br>";
+      //echo "Set validated<br>";
+
     }
 
     //Uniqueness
@@ -75,28 +89,32 @@
   }
 
     if (in_array($variable_validate,$taken_words)){
-      echo "Uniqueness validation failed<br>";
+      $error_message .= "Uniqueness validation failed<br>";
+      //echo "Uniqueness validation failed<br>";
     }
     else {
-      echo "Uniqueness validated<br>";
+      //echo "Uniqueness validated<br>";
+      $error_message .= "Uniqueness validated<br>";
     }
     //Format
     // use regex of a String
     // preg_match($regex , $subject)
     if (preg_match("/s f/","PHP is fun.")){
-      echo "Format match was found";
+      $error_message .= "Format match was found";
+      //echo "Format match was found";
     }else{
-      echo "No match";
+      //echo "No match";
+      $error_message .= "No match";
     }
-    // okay, well the echo is not as user friendly.
+    // okay, well the //echo is not as user friendly.
     /* better stack them in array,
     then after  a form is filled and attempted to submit,
      then spew out all errors at once*/
-
+     echo $error_message;
 
     ?>
 
-    <pre><?php echo print_r($taken_words);?></pre>
+    <pre><?php //echo print_r($taken_words);?></pre>
 
   </body>
 </html>
