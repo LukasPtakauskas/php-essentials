@@ -114,7 +114,28 @@
 
     ?>
 
-    <pre><?php //echo print_r($taken_words);?></pre>
+    <?php
+    //validation functions
+      function has_presence($value){
+        /*
+        if (!isset($value) || $value == ""){
+          return false;
+        }
+        else
+        {
+          return true;
+        }
+        */
+        return (isset($value) && $value !== "");
+      }
 
+      function has_max_length($value,$max){
+        return strlen($value)<=$max;
+      }
+
+      function has_inclusion_in($value , $set){
+        return in_array($value,$set);
+      }
+    ?>
   </body>
 </html>

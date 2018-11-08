@@ -1,5 +1,9 @@
 <?php
-    // page redirection
+    require_once("validation_functions.php");
+
+    $errors = array();
+
+
     function redirect_to($url){
     header("Location: ".$url);
     exit; // don't load anything else
@@ -13,16 +17,15 @@
 
     if (($username== "paskauskas" && $password=="cypa2018")||($username== "lukas" && $password=="vetra2017")){
       // succesfull login
-      echo "velkam";
+      $message= "velkam";
       recirect_to("main.php");
-    }
 
-  }
   else
   {
-    echo "Login";
+    $message= "Login";
   }
   ?>
+
 <!DOCTYPE html PUBLIC>
 <html lang="en">
   <head>
@@ -33,7 +36,14 @@
     </style>
   </head>
   <body>
-
+    <?php
+    echo $message;
+    ?>
+  <?php
+    if (has_presence($errors)){
+      echo $errors;
+    }
+    ?>
     <br>
     <form action="login.php" method="post">
       Username: <input type="text" name="username" value="" required/><br>
