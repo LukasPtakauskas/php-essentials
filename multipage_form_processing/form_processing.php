@@ -36,7 +36,9 @@
 
 
         echo "{$username}:{$password}";
-}else{echo "not submitten";}
+      }else{
+        echo "not submitten";
+      }
       ?>
   </body>
 </html>
