@@ -34,15 +34,20 @@
       $url = "http://localhost/";
       $url .= rawurlencode($url_page);
       $url .= "?"."param1=".urlencode($param1);
-      $url .= "?"."param2=".urlencode($param2);
-
+      $url .= "+"."param2=".urlencode($param2);
+      echo $param1.$param2;
 
       ?>
+
       <a href="<?php echo htmlspecialchars($url); ?>">
         <?php echo htmlspecialchars($link_text2); ?>
       </a>
 
-
+      <pre>
+        <?php
+        print_r($url);
+         ?>
+      </pre>
 
   </body>
 </html>
