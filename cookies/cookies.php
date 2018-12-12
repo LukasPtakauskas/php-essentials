@@ -47,7 +47,7 @@
   cookies and session
   </h1>
 
-<?php
+<?php 
 $test = isset($_COOKIE["IP"]) ? $_COOKIE["IP"] : "";
 echo $test."<br> ";
 // and now the unseting;
