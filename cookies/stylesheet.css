@@ -1,0 +1,14 @@
+/*coders nice*/
+.coders_exodia{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+}
+#coders_part{
+  display: inline-block;
+  background-color: #222222;
+  color:#eee;
+  padding: 10px 10px 10px 10px ;
+  margin: 15px 15px 15px 15px ;
+  border-radius: 15px;
+}
